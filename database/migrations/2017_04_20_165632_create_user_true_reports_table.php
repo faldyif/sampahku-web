@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateUserTrueReportsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('user_true_reports', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('content');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('trash_id')->unsigned();
+            $table->foreign('trash_id')->references('id')->on('trashes');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->string('accuracy');
+            $table->string('approved');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('user_true_reports');
+    }
+}
