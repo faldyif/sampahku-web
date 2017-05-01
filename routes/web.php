@@ -25,3 +25,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+
+
+// Give security for logged user only
+Route::group(['prefix' => 'api/v1'], function () {
+	Route::post('/login', 'ApiAuthController@login');
+	Route::post('/register', 'ApiAuthController@register');
+});
