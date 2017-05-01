@@ -17,9 +17,7 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin.index');
 });
-Route::get('/admin/user', function () {
-    return view('admin.user.index');
-});
+Route::resource('admin/user', 'UserController');
 
 
 
@@ -27,18 +25,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
