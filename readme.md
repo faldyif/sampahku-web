@@ -7,6 +7,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## About SampahKu
+Sampahku is a crowdsourcing platform to make the better world! Sampahku web is built with Laravel 5.4 Framework.
+
+## How to Install
+
+1. Clone this repository with git command on your working directory (C:\xampp\htdocs on xampp or C:\laragon\www on laragon): `git clone https://github.com/faldyif/sampahku-web.git`
+2. Edit the .env.example file. Change the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME and DB_PASSWORD parameter as your database configuration.
+3. Save the file as .env
+4. Install the dependencies: `composer install --no-scripts`
+5. Generate a random key with artisan command `php artisan key:generate`
+6. Migrate the tables to database `php artisan migrate`
+7. For symlinking the storage folder for file uploads, use: `php artisan storage:link`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
