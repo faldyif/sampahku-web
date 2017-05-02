@@ -61,7 +61,7 @@ class UserController extends Controller
     {
         //
         $user = User::find($id);
-       return View('user.edit')->with('user',$user);
+       return View('admin.user.edit')->with('user',$user);
     }
 
     /**
@@ -77,7 +77,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->email = $request->description;
         $user->password = $request->photo_path;
-        $user->us = Auth::user()->id;
+        $user->user_id = Auth::user()->id;
         $user->trash_type_id = Auth::trash_type()->id;
         $user->verified = $request->verified;
         $user->latitude = $request->latitude;
@@ -85,8 +85,8 @@ class UserController extends Controller
         $trashes->accuracy = $request->accuracy;
 
         $trashes->save();
-        Session::flash('message', 'Berhasil mengedit Tempat Sampah!');
-        return redirect('trashes/index'); // Set redirect ketika berhasil
+        Session::flash('message', 'Berhasil mengedit Data User!');
+        return redirect('admin/user/index'); // Set redirect ketika berhasil
     }
 
     /**
@@ -100,7 +100,7 @@ class UserController extends Controller
         //
         Trash::destroy($id);
        // Beri message kalau berhasil
-       Session::flash('message', 'Berhasil menghapus tempat sampah!');
-       return redirect('trashes/index'); // Set redirect ketika berhasil
+       Session::flash('message', 'Berhasil menghapus user!');
+       return redirect('user/index'); // Set redirect ketika berhasil
     }
 }

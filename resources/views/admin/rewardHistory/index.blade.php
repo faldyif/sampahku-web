@@ -1,12 +1,9 @@
-<?php
-	$users = \App\User::whereIn('role_id', [0,1]);
-	?>
-
 @extends('layouts.admin')
 
 @section('title', 'Admin')
 
 @section('content')
+
 <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -19,24 +16,33 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
+									<!--
+									id
+									user_id
+									cupon_code
+									point_spent
+									timestamps
+									-->
                                       <th>ID</th>
-                                    	<th>Email</th>
-                                    	<th>Username</th>
-                                    	<th>Point</th>
+                                    	<th>User ID</th>
+                                    	<th>Cupon Code</th>
+                                    	<th>Point Spent</th>
                                       <!-- <th>Tipe User</th> -->
                                       <th>Action</th>
                                     </thead>
                                     <tbody>
-                                      @foreach ($user as $key)
-                                      <tr>
+                                      @foreach ($reward_history as $key)
+
+
+                                        <tr>
                                         	<td>{{ $key->id }}</td>
-                                        	<td>{{ $key->email }}</td>
-                                        	<td>{{ $key->name }}</td>
-                                        	<td>{{ $key->point }}</td>
+                                        	<td>{{ $key->user_id }}</td>
+                                        	<td>{{ $key->cupon_code }}</td>
+                                        	<td>{{ $key->point_spent }}</td>
                                           <!-- <td>{{ $key->type_user }}</td> -->
                                           <td>
 
-                                              <a href="{{url('admin/user')}}/{{ $key->id}}/edit" class="btn btn-default">Edit User</a>
+                                              <a href="{{url('admin/user')}}/{{ $key->id}}/edit" class="btn btn-default">Edit</a>
                                                <!--  -->
                                                <a href="{{url('admin/user')}}/{{ $key->id}}/destroy" class="btn btn-default">Hapus</a>
 

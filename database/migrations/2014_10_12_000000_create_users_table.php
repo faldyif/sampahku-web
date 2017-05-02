@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('point')->default(0);
             $table->integer('role')->default(1); //default 1 user 0 : admin
+            //$table->string()
             $table->rememberToken();
             $table->timestamps();
         });
