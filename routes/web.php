@@ -42,10 +42,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
-
 
 // API Controller
 Route::group(['prefix' => 'api/v1'], function () {
@@ -53,5 +49,6 @@ Route::group(['prefix' => 'api/v1'], function () {
 	Route::post('/register', 'ApiAuthController@register');
 
 	Route::post('/trash/all', 'ApiTrashController@get');
+	Route::post('/trash/new', 'ApiTrashController@add');
 });
 
