@@ -1,3 +1,7 @@
+<?php
+	$users = \App\User::whereIn('role_id', [0,1]);
+	?>
+
 @extends('layouts.admin')
 
 @section('title', 'Admin')
@@ -17,7 +21,6 @@
                                     <thead>
                                       <th>ID</th>
                                     	<th>Email</th>
-                                    	<th>Password</th>
                                     	<th>Username</th>
                                     	<th>Point</th>
                                       <!-- <th>Tipe User</th> -->
@@ -25,13 +28,10 @@
                                     </thead>
                                     <tbody>
                                       @foreach ($user as $key)
-
-
-                                        <tr>
+                                      <tr>
                                         	<td>{{ $key->id }}</td>
                                         	<td>{{ $key->email }}</td>
-                                        	<td>{{ $key->password }}</td>
-                                        	<td>{{ $key->username }}</td>
+                                        	<td>{{ $key->name }}</td>
                                         	<td>{{ $key->point }}</td>
                                           <!-- <td>{{ $key->type_user }}</td> -->
                                           <td>

@@ -31,7 +31,7 @@ class ApiAuthController extends Controller
         }
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $response['user'] = User::where('email', $request->email)->get();
+            $response['user'] = User::where('email', $request->email)->first();
             $response['error'] = false; 
             return json_encode($response);
         } else {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Session;
 
 class UserController extends Controller
 {
@@ -61,7 +62,7 @@ class UserController extends Controller
     {
         //
         $user = User::find($id);
-       return View('user.edit')->with('user',$user);
+       return View('admin.user.edit')->with('user',$user);
     }
 
     /**
@@ -73,20 +74,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $user = User::find($id);
-        $user->email = $request->description;
-        $user->password = $request->photo_path;
-        $user->us = Auth::user()->id;
-        $user->trash_type_id = Auth::trash_type()->id;
-        $user->verified = $request->verified;
-        $user->latitude = $request->latitude;
-        $trashes->longitude = $request->longitude;
-        $trashes->accuracy = $request->accuracy;
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'point' => 'required',
+            'role' => 'required'
+        ]);
 
-        $trashes->save();
-        Session::flash('message', 'Berhasil mengedit Tempat Sampah!');
-        return redirect('trashes/index'); // Set redirect ketika berhasil
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->point = $request->point;
+        $user->role = $request->role;
+        $user->save();
+
+        Session::flash('message', 'Berhasil mengedit Data User!');
+        return redirect('admin/user'); // Set redirect ketika berhasil
     }
 
     /**
@@ -100,7 +103,7 @@ class UserController extends Controller
         //
         Trash::destroy($id);
        // Beri message kalau berhasil
-       Session::flash('message', 'Berhasil menghapus tempat sampah!');
-       return redirect('trashes/index'); // Set redirect ketika berhasil
+       Session::flash('message', 'Berhasil menghapus user!');
+       return redirect('user/index'); // Set redirect ketika berhasil
     }
 }

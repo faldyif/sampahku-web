@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
 
+
+namespace App\Http\Controllers;
+use App\PointHistory;
+use App\User;
 use Illuminate\Http\Request;
 
 class PointHistoriesController extends Controller
@@ -15,7 +18,7 @@ class PointHistoriesController extends Controller
     {
         //
         $pointHistory = PointHistory::all()
-       return View('pointHistory.index')->with('pointHistory',$pointHistory);
+       return View('admin.pointHistory.index')->with('pointHistory',$pointHistory);
     }
 
     /**
@@ -85,6 +88,6 @@ class PointHistoriesController extends Controller
         PointHistory::destroy($id);
         // Beri message kalau berhasil
         Session::flash('message', 'Berhasil menghapus poin!');
-        return redirect('pointHistory/index');
+        return redirect('admin.pointHistory/index');
     }
 }

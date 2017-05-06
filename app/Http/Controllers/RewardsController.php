@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Session;
+use App\Reward;
+use App\User;
 class RewardsController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class RewardsController extends Controller
     {
         //
         $reward = Reward::all();
-        return View('reward.index')->with('reward', $reward);
+        return View('admin.reward.index')->with('reward', $reward);
     }
 
     /**
@@ -25,7 +27,7 @@ class RewardsController extends Controller
      */
     public function create()
     {
-        return view('reward.create');
+        return view('admin.reward.create');
     }
 
     /**
@@ -62,7 +64,7 @@ class RewardsController extends Controller
 
          // Beri message kalau berhasil
          Session::flash('message', 'Selama berhasil mendapatkan reward!');
-         return redirect('reward/index'); // Set redirect ketika berhasil
+         return redirect('admin.reward/index'); // Set redirect ketika berhasil
     }
 
     /**
@@ -86,7 +88,7 @@ class RewardsController extends Controller
     {
         //
         $reward = Reward::find($id);
-       return View('reward.edit')->with('reward', $reward);
+       return View('admin.reward.edit')->with('reward', $reward);
     }
 
     /**
