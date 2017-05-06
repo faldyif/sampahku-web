@@ -51,5 +51,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['prefix' => 'api/v1'], function () {
 	Route::post('/login', 'ApiAuthController@login');
 	Route::post('/register', 'ApiAuthController@register');
+
+	Route::post('/trash/all', 'ApiTrashController@get');
 });
 

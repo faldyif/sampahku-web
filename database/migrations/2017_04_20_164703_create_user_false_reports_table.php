@@ -23,7 +23,7 @@ class CreateUserFalseReportsTable extends Migration
             $table->string('latitude');
             $table->string('longitude');
             $table->string('accuracy');
-            $table->string('approved');
+            $table->integer('approved')->default(0);
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@ class CreateStoriesTable extends Migration
             $table->string('latitude');
             $table->string('longitude');
             $table->string('accuracy');
-            $table->string('verified');
+            $table->integer('verified')->default(0);
             $table->timestamps();
         });
     }
