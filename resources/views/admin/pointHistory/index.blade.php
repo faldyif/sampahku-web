@@ -24,7 +24,7 @@
                                       <th>Action</th>
                                     </thead>
                                     <tbody>
-                                      @foreach ($user as $key)
+                                      @foreach ($pointHistory as $key)
                                       <tr>
                                         	<td>{{ $key->id }}</td>
                                         	<td>{{ $key->point }}</td>

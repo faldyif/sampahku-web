@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
+use App\Trash;
+use App\User;
+use Session;
 
 class TrashesController extends Controller
 {
@@ -14,9 +19,10 @@ class TrashesController extends Controller
     public function index()
     {
         // ambil semua data trash
-        $trashes = Trash::all()
-        return View('trashes.index')->with('trashes',$trashes);
+        $trash = Trash::all();
+        return View('admin.trash.index')->with('trash',$trash);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -26,6 +32,7 @@ class TrashesController extends Controller
     public function create()
     {
         //
+        
 
     }
 
@@ -50,8 +57,8 @@ class TrashesController extends Controller
     public function show($id)
     {
         //
-        $trashes = Trash::where('id',$id)->get();
-        return View('trashes.view')->with('trashes',$trashes);
+        // $trash = Trash::where('id',$id)->get();
+        // return View('admin.trash.view')->with('trash',$trash);
     }
 
     /**
@@ -63,8 +70,8 @@ class TrashesController extends Controller
     public function edit($id)
     {
         //
-        $trashes = Trash::find($id);
-        return View('trashes.edit')->with('trashes',$trashes);
+        $trash= Trash::find($id);
+        return View('admin.trash.edit')->with('trash',$trash);
     }
 
     /**
@@ -77,19 +84,19 @@ class TrashesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $trashes = Trash::find($id);
-        $trashes->description = $request->description;
-        $trashes->photo_path = $request->photo_path;
-        $trashes->user_id = Auth::user()->id;
-        $trashes->trash_type_id = Auth::trash_type()->id;
-        $trashes->verified = $request->verified;
-        $trashes->latitude = $request->latitude;
-        $trashes->longitude = $request->longitude;
-        $trashes->accuracy = $request->accuracy;
+        $trash= Trash::find($id);
+        $trash->description = $request->description;
+        $trash->photo_path = $request->photo_path;
+        //$trash->user_id = Auth::user()->id;
+        //$trash->trash_type_id = trash_type()->id;
+        $trash->verified = $request->verified;
+        $trash->latitude = $request->latitude;
+        $trash->longitude = $request->longitude;
+        $trash->accuracy = $request->accuracy;
 
-        $trashes->save();
+        $trash->save();
         Session::flash('message', 'Berhasil mengedit Tempat Sampah!');
-        return redirect('trashes/index'); // Set redirect ketika berhasil
+        return redirect('admin/trash'); // Set redirect ketika berhasil
     }
 
     /**
@@ -104,6 +111,7 @@ class TrashesController extends Controller
         Trash::destroy($id);
         // Beri message kalau berhasil
         Session::flash('message', 'Berhasil menghapus tempat sampah!');
-        return redirect('trashes/index'); // Set redirect ketika berhasil
+        return redirect('admin/trash'); // Set redirect ketika berhasil
+
     }
 }

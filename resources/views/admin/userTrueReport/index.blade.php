@@ -1,6 +1,3 @@
-<!-- <?php
-	$users = \App\User::whereIn('role_id', [0,1]);
-	?> -->
 
 @extends('layouts.admin')
 
@@ -13,34 +10,41 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Data User</h4>
-                                <p class="category">Informasi akun user</p>
+                                <h4 class="title">Laporan Tempat Sampah</h4>
+                                <p class="category">Informasi Data Laporan Kebenaran Tempat sampah</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
                                       <th>ID</th>
-                                    	<th>Email</th>
-                                    	<th>Username</th>
-                                      <th>Role</th>
-                                    	<th>Point</th>
+                                    	<th>Content</th>
+                                    	<th>User ID</th>
+                                    	<th>Trash ID</th>
+                                      <th>Latitude</th>
+                                      <th>Longitude</th>
+                                      <th>Accuracy</th>
+                                      <th>Approved</th>
                                       <!-- <th>Tipe User</th> -->
                                       <th>Action</th>
                                     </thead>
                                     <tbody>
-                                      @foreach ($user as $key)
+
+                                      @foreach ($userTrueReport as $key)
+
                                       <tr>
                                         	<td>{{ $key->id }}</td>
-                                        	<td>{{ $key->email }}</td>
-                                        	<td>{{ $key->name }}</td>
-                                          <td>{{ $key->role }}</td>
-                                        	<td>{{ $key->point }}</td>
+                                        	<td>{{ $key->content }}</td>
+                                        	<td>{{ $key->user_id }}</td>
+                                        	<td>{{ $key->trash_id }}</td>
+                                          <td>{{ $key->latitude }}</td>
+                                          <td>{{ $key->longitude }}</td>
+                                          <td>{{ $key->accuracy}}</td>
+                                          <td>{{ $key->approved}}</td>
                                           <!-- <td>{{ $key->type_user }}</td> -->
                                           <td>
 
-                                              <a href="{{url('admin/user')}}/{{ $key->id}}/edit" class="btn btn-default">Edit User</a>
                                                <!--  -->
-                                               <a href="{{url('admin/user/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
+                                               <a href="{{url('admin/userTrueReport/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
 
 
                                         </td>

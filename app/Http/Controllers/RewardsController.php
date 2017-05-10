@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Session;
 use App\Reward;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+
 class RewardsController extends Controller
 {
     /**
@@ -60,11 +62,11 @@ class RewardsController extends Controller
          $reward->available = $request->available;
 
          // Simpan object TypeTrash ke dalam database
-         $trashType->save();
+         $reward->save();
 
          // Beri message kalau berhasil
          Session::flash('message', 'Selama berhasil mendapatkan reward!');
-         return redirect('admin.reward/index'); // Set redirect ketika berhasil
+         return redirect('admin/reward'); // Set redirect ketika berhasil
     }
 
     /**
@@ -122,10 +124,10 @@ class RewardsController extends Controller
         $reward->available = $request->available;
 
         // Simpan object schedule ke dalam database
-        $trashType->save();
+        $reward->save();
 
 
-        return redirect('reward');
+        return redirect('admin/reward');
     }
 
     /**
@@ -137,10 +139,15 @@ class RewardsController extends Controller
     public function destroy($id)
     {
         //
-        $reward = Reward::find($id);
-        $reward->delete();
-        //redirect
-        Session::flash('message','Data berhasil dihapus');
-        return Redirect::to('reward');
+        // $reward = Reward::find($id);
+        // $reward->delete();
+        // //redirect
+        // Session::flash('message','Data berhasil dihapus');
+        // return Redirect::to('admin/reward');
+
+        Reward::destroy($id);
+       // Beri message kalau berhasil
+       Session::flash('message', 'Berhasil menghapus reward!');
+       return redirect('admin/reward'); // Set redirect ketika berhasil
     }
 }

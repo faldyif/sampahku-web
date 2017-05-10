@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TrashType;
+use Session;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class TrashTypeController extends Controller
 {
@@ -28,7 +33,7 @@ class TrashTypeController extends Controller
     public function create()
     {
         //
-        return view('trashType.create');
+        return view('admin.trashType.create');
     }
 
     /**
@@ -60,7 +65,7 @@ class TrashTypeController extends Controller
 
           // Beri message kalau berhasil
           Session::flash('message', 'Berhasil menambahkan type tempat sampah!');
-          return redirect('trashType/index'); // Set redirect ketika berhasil
+          return redirect('admin/trashType'); // Set redirect ketika berhasil
 
 
     }
@@ -86,7 +91,7 @@ class TrashTypeController extends Controller
     {
         //
         $trashType = TrashType::find($id);
-        return View('trashType.edit')->with('trashType', $trashType);
+        return View('admin.trashType.edit')->with('trashType', $trashType);
     }
 
     /**
@@ -114,7 +119,7 @@ class TrashTypeController extends Controller
         $trashType->save();
 
 
-        return redirect('trashType');
+        return redirect('admin/trashType');
     }
 
     /**
@@ -126,10 +131,19 @@ class TrashTypeController extends Controller
     public function destroy($id)
     {
         //
-        $trashType = TrashType::find($id);
-        $trashType->delete();
+        // $trashType = TrashType::find($id);
+        // $trashType->delete();
+
+        TrashType::destroy($id);
         //redirect
         Session::flash('message','Data berhasil dihapus');
-        return Redirect::to('trashType');
+        return redirect('admin/trashType');
+
+      //   User::destroy($id);
+      //  // Beri message kalau berhasil
+      //  Session::flash('message', 'Berhasil menghapus user!');
+      //  return redirect('admin/user'); // Set redirect ketika berhasil
+
+
     }
 }

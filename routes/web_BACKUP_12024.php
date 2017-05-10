@@ -31,34 +31,41 @@ Route::get('/admin/pointHistory', function () {
 });
 
 Route::resource('admin/user','UserController');
-Route::get('admin/user/destroy/{id}','UserController@destroy');
 Route::resource('admin/reward','RewardsController');
-Route::get('admin/reward/destroy/{id}','RewardsController@destroy');
-Route::resource('admin/rewardHostory','RewardHistoriesController');
 Route::resource('admin/pointHistory','PointHistoriesController');
-Route::resource('admin/story','StoriesController');
-Route::resource('admin/trashType','TrashTypeController');
-Route::get('admin/trashType/destroy/{id}','TrashTypeController@destroy');
-Route::resource('admin/userTrueReport','UserTrueReportsController');
-Route::get('admin/userTrueReport/destroy/{id}','UserTrueReportsController@destroy');
-Route::resource('admin/userFalseReport','UserFalseReportsController');
-Route::get('admin/userFalseReport/destroy/{id}','UserFalseReportsController@destroy');
-Route::resource('admin/trash','TrashesController');
-Route::get('admin/trash/destroy/{id}','TrashController@destroy');
-Route::resource('admin/rewardHistory','RewardHistoriesController');
-Route::get('admin/rewardHistory/destroy/{id}','RewardHistoriesController@destroy');
-// 
-// Route::get('/apitrash', 'ApiTrashController@app');
+Route::resource('admin/stories','StoriesController', ['only' => [
+        'index'
+    ]]);
+//-----------
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Auth::routes();
 
-// API Controller
+Route::get('/home', 'HomeController@index');
+
+<<<<<<< HEAD
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+=======
+
+
+// Give security for logged user only
 Route::group(['prefix' => 'api/v1'], function () {
 	Route::post('/login', 'ApiAuthController@login');
 	Route::post('/register', 'ApiAuthController@register');
-
-	Route::post('/trash/all', 'ApiTrashController@get');
-	Route::post('/trash/new', 'ApiTrashController@add');
 });
+>>>>>>> 32799d4b88412a6d229b42ae01fb56a60be405d7

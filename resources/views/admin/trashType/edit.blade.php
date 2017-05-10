@@ -11,10 +11,10 @@
               <div class="col-md-8">
                   <div class="card">
                       <div class="header">
-                          <h4 class="title">Edit User</h4>
+                          <h4 class="title">Edit Tipe Tempat Sampah</h4>
                       </div>
                       <div class="content">
-                          {!! Form::model($user, array('route' => array('user.update', $user->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
+                          {!! Form::model($trashType, array('route' => array('trashType.update', $trashType->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
                               <div class="row">
                                   <!-- <div class="col-md-5">
                                       <div class="form-group">
@@ -22,43 +22,35 @@
                                           <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
                                       </div>
                                   </div> -->
-                                  <div class="col-md-3">
+                                  <div class="col-md-8">
                                       <div class="form-group">
-                                          <label>Username</label>
-                                          {{ Form::text('name', null, array('class' => 'form-control')) }}
+                                          <!-- <label>Tipe Tempat Sampah</label>
+                                          <label>Role</label>
+                                            <!-- {{ Form::text('role', null, array('class' => 'form-control')) }} -->
+                                            <label>Tipe Tempat Sampah</label>
+                                              <!-- {{ Form::text('role', null, array('class' => 'form-control')) }} -->
+                                            <select name="trash_type" class="form-control select2">
+
+                                              <option value="1">Tempat Sampah Biasa</option>
+                                              <option value="2">TPA</option>
+
+                                            </select>
+
+
+                                        <!--  {{ Form::text('trash_type', null, array('class' => 'form-control')) }} -->
                                       </div>
                                   </div>
-                                  <div class="col-md-4">
+                                <div>
+                                  <div class="col-md-8">
                                       <div class="form-group">
-                                          <label for="exampleInputEmail1">Email address</label>
-                                          {{ Form::text('email', null, array('class' => 'form-control')) }}
+                                          <label for="exampleInputEmail1">Icon Path</label>
+                                          {{ Form::text('icon_path', null, array('class' => 'form-control')) }}
                                       </div>
                                   </div>
                               </div>
-
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <div class="form-group">
-                                          <label>Point</label>
-                                          {{ Form::text('point', null, array('class' => 'form-control')) }}
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Role</label>
-                                        <!-- {{ Form::text('role', null, array('class' => 'form-control')) }} -->
-                                      <select name="role" class="form-control select2">
-
-                                        <option value="0">Admin</option>
-                                        <option value="1">User</option>
-
-                                      </select>
+                            </div>
 
 
-
-                                      </div>
-                                  </div>
-                              </div>
 
                               <!-- <div class="row">
                                   <div class="col-md-12">
@@ -99,33 +91,18 @@
                                   </div>
                               </div> -->
 
-                              <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                              <button type="submit" class="btn btn-info btn-fill pull-right">Update Trash Type</button>
                               <div class="clearfix"></div>
                           {!! Form::close() !!}
                       </div>
                   </div>
               </div>
               <div class="col-md-4">
-                  <div class="card card-user">
+                  <div class="card card">
                       <div class="image">
                           <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
                       </div>
-                      <div class="content">
-                          <div class="author">
-                               <a href="#">
-                              <img class="avatar border-gray" src="assets/img/faces/face-3.jpg" alt="..."/>
 
-                                <h4 class="title">{{$user->name}}<br />
-                                   <small>{{$user->name}}</small>
-                                </h4>
-                              </a>
-                          </div>
-                          <p class="description text-center"> "Lamborghini Mercy <br>
-                                              Your chick she so thirsty <br>
-                                              I'm in that two seat Lambo"
-                          </p>
-                      </div>
-                      <hr>
                       <div class="text-center">
                           <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
                           <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\UserFalseReport;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
 class UserFalseReportsController extends Controller
 {
@@ -14,8 +17,8 @@ class UserFalseReportsController extends Controller
     public function index()
     {
         //
-        $userFalseReport = UserFalseReport::all()
-        return View('userTrueReport.index')->with('userTrueReport',$userFalseReport);
+        $userFalseReport = UserFalseReport::all();
+        return View('admin.userTrueReport.index')->with('userTrueReport',$userFalseReport);
     }
 
     /**
@@ -85,6 +88,6 @@ class UserFalseReportsController extends Controller
         UserFalseReport::destroy($id);
        // Beri message kalau berhasil
        Session::flash('message', 'Berhasil menghapus data!');
-       return redirect('userFalseReport/index');
+       return redirect('admin/userFalseReport');
     }
 }

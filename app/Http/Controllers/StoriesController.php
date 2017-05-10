@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Stories;
+use App\Story;
 use App\User;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
 class StoriesController extends Controller
 {
@@ -16,6 +18,9 @@ class StoriesController extends Controller
     public function index()
     {
         //
+        $story = Story::all();
+       return View('admin.story.index')->with('story',$story);
+
     }
 
     /**
@@ -82,5 +87,10 @@ class StoriesController extends Controller
     public function destroy($id)
     {
         //
+      Story::destroy($id);
+      // Beri message kalau berhasil
+      Session::flash('message', 'Berhasil menghapus user!');
+      return redirect('admin/story'); // Set redirect ketika berhasil
+
     }
 }

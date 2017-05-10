@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\RewardHistory;
+use Illuminate\Support\Facades\Auth;
+use Session;
+
+
 class RewardHistoriesController extends Controller
 {
     /**
@@ -14,8 +19,8 @@ class RewardHistoriesController extends Controller
     public function index()
     {
         //
-        $rewardHistory = RewardHistory::all()
-        return View('rewardHistory.index')->with('rewardHistory',$rewardHistory);
+        $rewardHistory = RewardHistory::all();
+        return View('admin.rewardHistory.index')->with('rewardHistory',$rewardHistory);
     }
 
     /**
@@ -85,6 +90,6 @@ class RewardHistoriesController extends Controller
         RewardHistory::destroy($id);
         // Beri message kalau berhasil
         Session::flash('message', 'Berhasil menghapus data!');
-        return redirect('rewardHistory/index');
+        return redirect('admin/rewardHistory');
     }
 }

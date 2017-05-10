@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+	<title>SampahKu</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -57,57 +57,75 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                    SampahKu
                 </a>
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="dashboard.html">
+                <!-- <li class="active">
+                    <a href="{{ url('/admin')}}">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ url('/admin/user') }}">
                         <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
+                        <p>User</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="{{ url('/admin/reward') }}">
                         <i class="pe-7s-note2"></i>
-                        <p>Table List</p>
+                        <p>Reward</p>
+                    </a>
+                </li>
+								<li>
+                    <a href="{{ url('/admin/rewardHistory') }}">
+                        <i class="pe-7s-note2"></i>
+                        <p>Reward History</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="{{ url('/admin/story') }}">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
+                        <p>Story</p>
+                    </a>
+                </li>
+								<li>
+                    <a href="{{ url('/admin/pointHistory') }}">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Point History</p>
                     </a>
                 </li>
                 <li>
-                    <a href="icons.html">
+                    <a href="{{ url('/admin/trashType') }}">
                         <i class="pe-7s-science"></i>
-                        <p>Icons</p>
+                        <p>Tipe Tempat Sampah</p>
                     </a>
                 </li>
-                <li>
-                    <a href="maps.html">
+								<li>
+                    <a href="{{ url('/admin/trash') }}">
                         <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
+                        <p>Tempat Sampah</p>
                     </a>
                 </li>
                 <li>
-                    <a href="notifications.html">
+                    <a href="{{ url('/admin/userTrueReport') }}">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>True Report</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/admin/userFalseReport') }}">
                         <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
+                        <p>False Report</p>
                     </a>
                 </li>
 				<li class="active-pro">
-                    <a href="upgrade.html">
+                    <a href="upgrade.html">Sampah-Ku
                         <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
+                        <p></p>
                     </a>
                 </li>
             </ul>
@@ -161,11 +179,20 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                           <a href="">
+											<!-- @if (Auth::guest())
+													<li><a href="{{ route('login') }}">Login</a></li>
+													<li><a href="{{ route('register') }}">Register</a></li>
+											@else -->
+
+													<!-- <li class="dropdown">
+															<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+																	{{ Auth::user()->name }} <span class="caret"></span>
+															</a>
+                        <li> -->
+                           <!-- <a href="">
                                <p>Account</p>
-                            </a>
-                        </li>
+                            </a> -->
+                      <!-- </li>
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
@@ -184,12 +211,23 @@
                               </ul>
                         </li>
                         <li>
-                            <a href="#">
-                                <p>Log out</p>
-                            </a>
+													<a href="{{ route('logout') }}"
+															onclick="event.preventDefault();
+																			 document.getElementById('logout-form').submit();">
+															Keluar
+													</a>
+													<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+															{{ csrf_field() }}
+													</form>
                         </li>
 						<li class="separator hidden-lg hidden-md"></li>
-                    </ul>
+						@endif -->
+						<a href="{{ url('/logout') }}"
+															onclick="event.preventDefault();
+																			 document.getElementById('logout-form').submit();"--><i class="fa fa-fw fa-power-off"></i> Logout</a>
+															<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+															{{ csrf_field() }}
+                    <!-- </ul> -->
                 </div>
             </div>
         </nav>
@@ -244,7 +282,7 @@
 
         	$.notify({
             	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+            	message: "SampahKu.com"
 
             },{
                 type: 'info',

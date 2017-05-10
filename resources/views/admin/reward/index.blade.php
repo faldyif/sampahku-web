@@ -28,12 +28,12 @@
 				timestamps
 				-->
                             <th>ID</th>
-                          	<th>Name</th>
-                          	<th>Description</th>
-                          	<th>Title</th>
-                          	<th>Stock</th>
-                          	<th>Photo Path</th>
-                          	<th>Available</th>
+                          	<th>Nama</th>
+                          	<th>Deskripsi</th>
+                          	<th>Judul</th>
+                          	<th>Stok</th>
+                          	<th>Foto</th>
+                          	<th>Ketersediaan</th>
                             <!-- <th>Tipe User</th> -->
                             <th>Action</th>
                           </thead>
@@ -49,10 +49,10 @@
                               	<td>{{ $key->available }}</td>
                                 <!-- <td>{{ $key->type_user }}</td> -->
                                 <td>
-
+                                    <a href="{{url('admin/reward')}}/create" class="btn btn-default">Tambah</a>
                                     <a href="{{url('admin/reward')}}/{{ $key->id}}/edit" class="btn btn-default">Edit</a>
                                      <!--  -->
-                                     <a href="{{url('admin/reward')}}/{{ $key->id}}/destroy" class="btn btn-default">Hapus</a>
+                                     <a href="{{url('admin/reward/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
 
                               </td>
                               </tr>

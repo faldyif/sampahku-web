@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class UserController extends Controller
@@ -101,9 +103,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-        Trash::destroy($id);
+        User::destroy($id);
        // Beri message kalau berhasil
        Session::flash('message', 'Berhasil menghapus user!');
-       return redirect('user/index'); // Set redirect ketika berhasil
+       return redirect('admin/user'); // Set redirect ketika berhasil
     }
 }

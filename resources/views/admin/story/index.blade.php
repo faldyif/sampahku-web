@@ -10,8 +10,8 @@
           <div class="col-md-12">
               <div class="card">
                   <div class="header">
-                      <h4 class="title">Data User</h4>
-                      <p class="category">Informasi akun user</p>
+                      <h4 class="title">Data Story</h4>
+                      <p class="category">Informasi akun story</p>
                   </div>
                   <div class="content table-responsive table-full-width">
                       <table class="table table-hover table-striped">
@@ -54,9 +54,9 @@
                               <!-- <td>{{ $key->type_user }}</td> -->
                               <td>
 
-                                  <a href="{{url('admin/user')}}/{{ $key->id}}/edit" class="btn btn-default">Edit</a>
+                                  
                                    <!--  -->
-                                   <a href="{{url('admin/user')}}/{{ $key->id}}/destroy" class="btn btn-default">Hapus</a>
+                                   <a href="{{url('admin/story')}}/{{ $key->id}}/destroy" class="btn btn-default">Hapus</a>
 
                             </td>
                             </tr>
