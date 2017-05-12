@@ -5,26 +5,23 @@
 @section('content')
 
 
-<div class="content-db">
+	<div class="content-db">
 		<div class="row">
 			<section class="col-md-12 pd-t-15 pd-lr-15">
 				<div class="sec-content-db">
 					<div class="div-content-db">
-						{!! Form::open(array('route' => 'reward.store', 'enctype' => 'multipart/form-data')) !!}
-							<h3 class="nomag">Tambah Tipe Tempat Sampah</h3>
-							<div class="row mg-t-20">
-								<div class="col-md-8">
-                  <!-- <label>Tipe Tempat Sampah</label>
-                    {{ Form::text('role', null, array('class' => 'form-control')) }} 
-                  <select type="integer" name="trash_type" id="trash_type" class="form-control select2">
-                    <option value="1">Tempat Sampah Biasa</option>
-                    <option value="2">TPA</option>
-
-                  </select>
-									<input type="integer" name="trash_type" id="trash_type" placeholder="Masukkan type tempat sampah" class="form-control">
-								</div> -->
-                <div class="col-md-8">
-									<textarea type="text" name="icon_path" id="icon_path" placeholder="Masukkan icon_path" class="form-control"></textarea>
+						{!! Form::open(array('route' => 'trashType.store', 'enctype' => 'multipart/form-data')) !!}
+						<h3 class="nomag">Tambah Tipe Tempat Sampah</h3>
+						<div class="row">
+							<div class="col-md-12">
+                				<div class="col-md-12">
+									{{ Form::text('trash_type', null, array('class' => 'form-control', 'placeholder' => 'Nama Jenis Tempat Sampah')) }}
+								</div>
+								<div class="col-md-4">
+									<span>Icon Tempat Sampah: </span>
+									<label>
+										{{ Form::file('icon' ,array('class' => 'form-control')) }}
+									</label>
 								</div>
 
 
@@ -35,6 +32,7 @@
 								</div>
 							</div>
 						{!! Form::close() !!}
+						</div>
 					</div>
 				</div>
 			</section>

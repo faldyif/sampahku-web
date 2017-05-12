@@ -9,7 +9,7 @@ use App\Trash;
 use App\User;
 use Session;
 
-class TrashesController extends Controller
+class TrashController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -43,7 +43,7 @@ Route::resource('admin/userTrueReport','UserTrueReportsController');
 Route::get('admin/userTrueReport/destroy/{id}','UserTrueReportsController@destroy');
 Route::resource('admin/userFalseReport','UserFalseReportsController');
 Route::get('admin/userFalseReport/destroy/{id}','UserFalseReportsController@destroy');
-Route::resource('admin/trash','TrashesController');
+Route::resource('admin/trash','TrashController');
 Route::get('admin/trash/destroy/{id}','TrashController@destroy');
 Route::resource('admin/rewardHistory','RewardHistoriesController');
 Route::get('admin/rewardHistory/destroy/{id}','RewardHistoriesController@destroy');

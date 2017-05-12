@@ -227,6 +227,7 @@
 																			 document.getElementById('logout-form').submit();"--><i class="fa fa-fw fa-power-off"></i> Logout</a>
 															<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
 															{{ csrf_field() }}
+                                                            </form>
                     <!-- </ul> -->
                 </div>
             </div>

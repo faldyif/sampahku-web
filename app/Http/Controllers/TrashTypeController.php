@@ -7,8 +7,6 @@ use App\TrashType;
 use Session;
 use Illuminate\Support\Facades\Auth;
 
-
-
 class TrashTypeController extends Controller
 {
     /**
@@ -44,28 +42,32 @@ class TrashTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
 
         // -----
         // Buat objek TypeTrash baru
         $this->validate($request,[
               'trash_type' => 'required',
-              'icon_path' => 'required',
+              'icon' => 'required|image'
+        ]);
 
-          ]);
+        // Buat objek TypeTrash baru
+        $trashType = new TrashType;
+        // Isi objek TypeTrash
+        $trashType->trash_type = $request->trash_type;
+        if($request->hasFile('icon') && $request->file('icon')->isValid()) {
+            $destinationPath = 'public/trash_type_icon';
+            $extension = $request->icon->extension();
+            $fileName = date('YmdHms').'_'.Auth::user()->id.'.'.$extension;
+            $request->icon->storeAs($destinationPath, $fileName);
+            $trashType->icon_path = $fileName;
+        }
 
-          // Buat objek TypeTrash baru
-          $trashType = new TrashType;
-          // Isi objek TypeTrash
-          $trashType->trash_type=$request->trash_type;
-          $trashType->icon_path = $request->icon_path;
+        // Simpan object TypeTrash ke dalam database
+        $trashType->save();
 
-          // Simpan object TypeTrash ke dalam database
-          $trashType->save();
-
-          // Beri message kalau berhasil
-          Session::flash('message', 'Berhasil menambahkan type tempat sampah!');
-          return redirect('admin/trashType'); // Set redirect ketika berhasil
+        // Beri message kalau berhasil
+        Session::flash('message', 'Berhasil menambahkan type tempat sampah!');
+        return redirect('admin/trashType'); // Set redirect ketika berhasil
 
 
     }
