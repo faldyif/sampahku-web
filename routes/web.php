@@ -11,47 +11,57 @@
 |
 */
 
+// Home view
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin', function () {
-    return view('admin.index');
-});
-Route::get('/admin/user', function () {
-    return view('admin.user.index');
-});
-Route::get('/admin/reward', function () {
-    return view('admin.reward.index');
-});
-// Route::get('/edit', function () {
-//     return view('user.edit');
-// });
-Route::get('/admin/pointHistory', function () {
-    return view('admin.pointHistory.index');
+
+// Give security for logged user (admins) only
+Route::group(['prefix' => 'admin'], function () {
+	Route::group(['middleware' => 'auth'], function () {
+		// Root folder
+		Route::get('/', function () {
+			if(Auth::user()->role == 0) {
+		    	return view('admin.index');
+			} else {
+				Auth::logout();
+		        return redirect('/');
+			}
+		});
+
+		// Route resources and gets
+		Route::resource('user','UserController');
+		Route::get('user/destroy/{id}','UserController@destroy');
+		Route::resource('reward','RewardsController');
+		Route::get('reward/destroy/{id}','RewardsController@destroy');
+		Route::resource('rewardHostory','RewardHistoriesController');
+		Route::resource('pointHistory','PointHistoriesController');
+		Route::resource('story','StoriesController');
+		Route::resource('trashType','TrashTypeController');
+		Route::get('trashType/destroy/{id}','TrashTypeController@destroy');
+		Route::resource('userTrueReport','UserTrueReportsController');
+		Route::get('userTrueReport/destroy/{id}','UserTrueReportsController@destroy');
+		Route::resource('userFalseReport','UserFalseReportsController');
+		Route::get('userFalseReport/destroy/{id}','UserFalseReportsController@destroy');
+		Route::resource('trash','TrashController');
+		Route::get('trash/destroy/{id}','TrashController@destroy');
+		Route::resource('rewardHistory','RewardHistoriesController');
+		Route::get('rewardHistory/destroy/{id}','RewardHistoriesController@destroy');
+	});
 });
 
-Route::resource('admin/user','UserController');
-Route::get('admin/user/destroy/{id}','UserController@destroy');
-Route::resource('admin/reward','RewardsController');
-Route::get('admin/reward/destroy/{id}','RewardsController@destroy');
-Route::resource('admin/rewardHostory','RewardHistoriesController');
-Route::resource('admin/pointHistory','PointHistoriesController');
-Route::resource('admin/story','StoriesController');
-Route::resource('admin/trashType','TrashTypeController');
-Route::get('admin/trashType/destroy/{id}','TrashTypeController@destroy');
-Route::resource('admin/userTrueReport','UserTrueReportsController');
-Route::get('admin/userTrueReport/destroy/{id}','UserTrueReportsController@destroy');
-Route::resource('admin/userFalseReport','UserFalseReportsController');
-Route::get('admin/userFalseReport/destroy/{id}','UserFalseReportsController@destroy');
-Route::resource('admin/trash','TrashController');
-Route::get('admin/trash/destroy/{id}','TrashController@destroy');
-Route::resource('admin/rewardHistory','RewardHistoriesController');
-Route::get('admin/rewardHistory/destroy/{id}','RewardHistoriesController@destroy');
-// 
-// Route::get('/apitrash', 'ApiTrashController@app');
+// Authentication Routes
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+// Home route, check if the user is admin or not after logged in
+Route::get('/home', function() {
+	if(Auth::user()->role == 0) {
+        return redirect('admin');
+	} else {
+		Auth::logout();
+        return redirect('/');
+	}
+});
 
 
 // API Controller
