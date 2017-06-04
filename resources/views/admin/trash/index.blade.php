@@ -36,8 +36,9 @@
                                         	<td>{{ $key->id }}</td>
                                         	<td>{{ $key->description }}</td>
                                         	<td>{{ $key->photo_path }}</td>
-
                                         	<td>{{ $key->verified }}</td>
+                                          <td>{{ $key->user_id }}</td>
+                                          <td>{{ $key->trash_type_id }}</td>
                                           <td>{{ $key->latitude }}</td>
                                           <td>{{ $key->longitude }}</td>
                                           <td>{{ $key->accuracy}}</td>
@@ -47,7 +48,7 @@
                                               <a href="{{url('admin/trash')}}/{{ $key->id}}/edit" class="btn btn-default">Edit</a>
                                                <!--  -->
                                                <a href="{{url('admin/trash/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
-                                              <a href="{{url('admin/trash/create')}}" class="btn btn-default">Tambah</a>
+                                          
 
                                         </td>
                                         </tr>

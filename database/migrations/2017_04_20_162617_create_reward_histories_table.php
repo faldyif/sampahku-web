@@ -18,9 +18,9 @@ class CreateRewardHistoriesTable extends Migration
             $table->string('cupon_code');
             $table->integer('point_spent');
             $table->integer('reward_id')->unsigned();
-            $table->foreign('reward_id')->references('id')->on('rewards');
+            $table->foreign('reward_id')->references('id')->on('rewards')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

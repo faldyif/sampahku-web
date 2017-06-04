@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>SampahKu</title>
+	<!-- <img src="{{ url ('public/img')}}/logo.png">  -->
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -74,9 +75,22 @@
                         <p>User</p>
                     </a>
                 </li>
+								<li>
+                    <a href="{{ url('/admin/trash') }}">
+                        <i class="pe-7s-trash"></i>
+                        <p>Tempat Sampah</p>
+                    </a>
+                </li>
+								<li>
+                    <a href="{{ url('/admin/trashType') }}">
+                        <i class="pe-7s-science"></i>
+                        <p>Tipe Tempat Sampah</p>
+                    </a>
+                </li>
+
                 <li>
                     <a href="{{ url('/admin/reward') }}">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-star"></i>
                         <p>Reward</p>
                     </a>
                 </li>
@@ -88,7 +102,7 @@
                 </li>
                 <li>
                     <a href="{{ url('/admin/story') }}">
-                        <i class="pe-7s-news-paper"></i>
+                        <i class="pe-7s-phone"></i>
                         <p>Story</p>
                     </a>
                 </li>
@@ -98,18 +112,7 @@
                         <p>Point History</p>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url('/admin/trashType') }}">
-                        <i class="pe-7s-science"></i>
-                        <p>Tipe Tempat Sampah</p>
-                    </a>
-                </li>
-								<li>
-                    <a href="{{ url('/admin/trash') }}">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Tempat Sampah</p>
-                    </a>
-                </li>
+
                 <li>
                     <a href="{{ url('/admin/userTrueReport') }}">
                         <i class="pe-7s-map-marker"></i>
@@ -118,12 +121,12 @@
                 </li>
                 <li>
                     <a href="{{ url('/admin/userFalseReport') }}">
-                        <i class="pe-7s-bell"></i>
+                        <i class="pe-7s-attention"></i>
                         <p>False Report</p>
                     </a>
                 </li>
 				<li class="active-pro">
-                    <a href="upgrade.html">Sampah-Ku
+                    <a href="{{ url('/admin') }}">Sampah-Ku
                         <i class="pe-7s-rocket"></i>
                         <p></p>
                     </a>
@@ -147,7 +150,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="{{url('admin/inc')}}" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-dashboard"></i>
 								<p class="hidden-lg hidden-md">Dashboard</p>
                             </a>
@@ -227,24 +230,23 @@
 																			 document.getElementById('logout-form').submit();"--><i class="fa fa-fw fa-power-off"></i> Logout</a>
 															<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
 															{{ csrf_field() }}
-                                                            </form>
                     <!-- </ul> -->
+									</form>
+									</a>
                 </div>
             </div>
         </nav>
-
-
         <div class="content">
-@yield('content')
-                                </div>
+						@yield('content')
+        </div>
 
 
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
 
@@ -281,11 +283,7 @@
 
         	demo.initChartist();
 
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "SampahKu.com"
-
-            },{
+        	{
                 type: 'info',
                 timer: 4000
             });

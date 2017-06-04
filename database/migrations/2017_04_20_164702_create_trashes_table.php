@@ -20,7 +20,7 @@ class CreateTrashesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('trash_type_id')->unsigned();
-            $table->foreign('trash_type_id')->references('id')->on('trash_types');
+            $table->foreign('trash_type_id')->references('id')->on('trash_types')->onDelete('cascade');
             $table->integer('verified')->default(0);
             $table->string('latitude');
             $table->string('longitude');
