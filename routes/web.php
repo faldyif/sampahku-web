@@ -61,12 +61,9 @@ Route::group(['prefix' => 'api/v1'], function () {
 
 	Route::post('/trash/all', 'ApiTrashController@get');
 	Route::post('/trash/new', 'ApiTrashController@add');
-<<<<<<< HEAD
 	Route::post('/trash/type', 'ApiTrashController@getTrashTypes');
 
 	Route::post('/story/new', 'ApiStoryController@add');
-=======
 
-  Route::post('/admin/trashType/new', 'TrashTypeController@add');
->>>>>>> 860363a6ccb860f1af64182ff64cd1e3d681b5ba
+  	Route::post('/admin/trashType/new', 'TrashTypeController@add');
 });
