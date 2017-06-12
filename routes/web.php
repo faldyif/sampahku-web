@@ -71,4 +71,7 @@ Route::group(['prefix' => 'api/v1'], function () {
 
 	Route::post('/trash/all', 'ApiTrashController@get');
 	Route::post('/trash/new', 'ApiTrashController@add');
+	Route::post('/trash/type', 'ApiTrashController@getTrashTypes');
+
+	Route::post('/story/new', 'ApiStoryController@add');
 });
