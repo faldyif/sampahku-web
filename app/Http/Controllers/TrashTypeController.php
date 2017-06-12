@@ -43,7 +43,6 @@ class TrashTypeController extends Controller
     public function store(Request $request)
     {
 
-        // -----
         // Buat objek TypeTrash baru
         $this->validate($request,[
               'trash_type' => 'required',

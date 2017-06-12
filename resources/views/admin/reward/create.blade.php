@@ -16,7 +16,7 @@
 								<div class="content">
 									<div class="row">
 										<div class="col-md-8">
-											<input type="text" name="name" id="title" placeholder="Masukkan nama reward" class="form-control">
+											<input type="text" name="name" id="name" placeholder="Masukkan nama reward" class="form-control">
 										</div>
 									</div>
 									<div class="row">
@@ -34,10 +34,19 @@
 											<input type="integer" name="stock" id="stock" placeholder="Jumlah Stok" class="form-control">
 										</div>
 									</div>
-									<div class="row">
+									<!-- <div class="row">
 		                <div class="col-md-8">
 											<input type="text" name="photo_path" id="photo_path" placeholder="Path Foto" class="form-control">
 										</div>
+									</div> -->
+									<div class="row">
+										<div class="col-md-8">
+											<label for="photo_path" class="control-label">Image File :</label>
+											<input type="file" id="photo" name="photo" class="form-control" accept=".jpg, .jpeg, .png, .gif" />
+										</div>
+									</div>
+									<div class="form-group">
+										<input type="submit" name="submit" class="btn btn-info" value="Upload" />
 									</div>
 									<div class="row">
 		                <div class="col-md-8">
@@ -47,7 +56,7 @@
 									<div class="row">
 										<div class="col-md-12">
 		                  <label>
-		                  	<input type="submit" value="Tambah" name="" class="btn btn-sm btn-info">
+		                  	<input type="submit" value="submit" name="submit" class="btn btn-sm btn-info">
 		                  </label>
 										</div>
 									</div>

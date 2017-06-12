@@ -33,7 +33,7 @@
                                           <td>{{ $key->related_id }}</td>
                                           <td>
 
-                                              <a href="{{url('admin/pointHistory')}}/{{ $key->id}}/edit" class="btn btn-default">Edit User</a>
+
                                                <!--  -->
                                                <a href="{{url('admin/pointHistory')}}/{{ $key->id}}/destroy" class="btn btn-default">Hapus</a>
 

@@ -42,24 +42,39 @@ class RewardsController extends Controller
     {
         //
         $this->validate($request,[
-             'name' => 'required',
-             'description' => 'required',
-             'title' => 'required',
-             'stock' => 'required',
-             'photo_path' => 'required',
-             'available' => 'required',
+              'name' => 'required',
+              'description' => 'required',
+              'title' => 'required',
+              'stock' => 'required',
+              'photo' => 'required|image',
+              'available' => 'required',
+        ]);
 
-         ]);
+        // Buat objek TypeTrash baru
+        $reward= new Reward;
+        // Isi objek TypeTrash
+       $reward->name = $request->name;
+       $reward->description = $request->description;
+       $reward->title = $request->title;
+       $reward->stock = $request->stock;
+       $reward->available = $request->available;
+        // if($request->hasFile('photo') && $request->file('photo')->isValid()) {
+        //     $destinationPath = 'public/reward';
+        //     $extension = $request->photo->extension();
+        //     $fileName = date('YmdHms').'_'.Auth::user()->id.'.'.$extension;
+        //     $request->photo->storeAs($destinationPath, $fileName);
+        //     $reward->photo_path = $fileName;
+        // }
+        if($request->hasFile('photo') && $request->file('photo')->isValid()) {
+            $destinationPath = 'public/reward';
+            $extension = $request->photo->extension();
+            $fileName = date('YmdHms').'_'.Auth::user()->id.'.'.$extension;
+            $request->photo->storeAs($destinationPath, $fileName);
+            $reward->photo_path = $fileName;
+        }
 
-         // Buat objek TypeTrash baru
-         $reward = new Reward;
-         // Isi objek TypeTrash
-         $reward->name=$request->name;
-         $reward->description = $request->description;
-         $reward->title = $request->title;
-         $reward->stock = $request->stock;
-         $reward->photo_path = $request->photo_path;
-         $reward->available = $request->available;
+
+
 
          // Simpan object TypeTrash ke dalam database
          $reward->save();
