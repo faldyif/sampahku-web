@@ -15,7 +15,7 @@ class CreateTrashTypesTable extends Migration
     {
         Schema::create('trash_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('trash_type')->default(1); // 1 tempat biasa, 2 TPA
+            $table->string('trash_type')->default(1); // 1 tempat biasa, 2 TPA
             $table->string('icon_path');
             $table->timestamps();
         });

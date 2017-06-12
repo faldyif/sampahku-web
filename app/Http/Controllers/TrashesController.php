@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
+use App\Trash;
+use App\User;
 use Session;
 
-class UserController extends Controller
+class TrashesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +18,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-        $user = User::all();
-        return View('admin.user.index')->with('user', $user);
+        // ambil semua data trash
+        $trash = Trash::all();
+        return View('admin.trash.index')->with('trash',$trash);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -29,6 +32,8 @@ class UserController extends Controller
     public function create()
     {
         //
+
+
     }
 
     /**
@@ -39,7 +44,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi
+
     }
 
     /**
@@ -51,6 +57,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        // $trash = Trash::where('id',$id)->get();
+        // return View('admin.trash.view')->with('trash',$trash);
     }
 
     /**
@@ -62,8 +70,8 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        $user = User::find($id);
-       return View('admin.user.edit')->with('user',$user);
+        $trash= Trash::find($id);
+        return View('admin.trash.edit')->with('trash',$trash);
     }
 
     /**
@@ -75,22 +83,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'point' => 'required',
-            'role' => 'required'
-        ]);
+        //
+        $trash= Trash::find($id);
+        $trash->description = $request->description;
+        $trash->photo_path = $request->photo_path;
+        //$trash->user_id = Auth::user()->id;
+        //$trash->trash_type_id = trash_type()->id;
+        $trash->verified = $request->verified;
+        $trash->latitude = $request->latitude;
+        $trash->longitude = $request->longitude;
+        $trash->accuracy = $request->accuracy;
 
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->point = $request->point;
-        $user->role = $request->role;
-        $user->save();
-
-        Session::flash('message', 'Berhasil mengedit Data User!');
-        return redirect('admin/user'); // Set redirect ketika berhasil
+        $trash->save();
+        Session::flash('message', 'Berhasil mengedit Tempat Sampah!');
+        return redirect('admin/trash'); // Set redirect ketika berhasil
     }
 
     /**
@@ -102,9 +108,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-        User::destroy($id);
-       // Beri message kalau berhasil
-       Session::flash('message', 'Berhasil menghapus user!');
-       return redirect('admin/user'); // Set redirect ketika berhasil
+        Trash::destroy($id);
+        // Beri message kalau berhasil
+        Session::flash('message', 'Berhasil menghapus tempat sampah!');
+        return redirect('admin/trash'); // Set redirect ketika berhasil
+
     }
 }
