@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
             'name' => "Faldy Ikhwan Fadila",
             'email' => 'faldy.if@gmail.com',
             'password' => bcrypt('rahasia'),
+            'role' => 0,
         ]);
     }
 }
