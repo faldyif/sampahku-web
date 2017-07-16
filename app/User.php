@@ -15,12 +15,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role',
     ];
 
     public function isAdmin()
     {
-        if($this->role = 2) return true;
+        if($this->role = 0) return true;
         else return false;
     }
 
