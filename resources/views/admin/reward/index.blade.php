@@ -15,6 +15,8 @@
                       <p class="category">Informasi Reward User</p>
                   </div>
                   <div class="content table-responsive table-full-width">
+                    <a href="{{url('admin/reward')}}/create" class="btn btn-success"><i class="fa fa-plus"></i>Tambah</a>
+                    <br>
                       <table class="table table-hover table-striped">
                             <th>ID</th>
                           	<th>Nama</th>
@@ -39,10 +41,10 @@
                               	<td>{{ $key->available }}</td>
                                 <!-- <td>{{ $key->type_user }}</td> -->
                                 <td>
-                                    <a href="{{url('admin/reward')}}/create" class="btn btn-default">Tambah</a>
-                                    <a href="{{url('admin/reward')}}/{{ $key->id}}/edit" class="btn btn-default">Edit</a>
+                                    
+                                    <a href="{{url('admin/reward')}}/{{ $key->id}}/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                                      <!--  -->
-                                     <a href="{{url('admin/reward/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
+                                     <a href="{{url('admin/reward/destroy')}}/{{ $key->id}}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
 
                               </td>
                               </tr>
