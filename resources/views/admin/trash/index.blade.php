@@ -45,9 +45,9 @@
                                           <!-- <td>{{ $key->type_user }}</td> -->
                                           <td>
 
-                                              <a href="{{url('admin/trash')}}/{{ $key->id}}/edit" class="btn btn-default">Edit</a>
+                                              <a href="{{url('admin/trash')}}/{{ $key->id}}/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                                                <!--  -->
-                                               <a href="{{url('admin/trash/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
+                                               <a href="{{url('admin/trash/destroy')}}/{{ $key->id}}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
                                           
 
                                         </td>

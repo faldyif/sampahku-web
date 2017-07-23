@@ -65,6 +65,12 @@ class UserController extends Controller
         $user = User::find($id);
        return View('admin.user.edit')->with('user',$user);
     }
+     public function detail($id)
+    {
+        //
+        $user = User::find($id);
+       return View('admin.user.detail')->with('user',$user);
+    }
 
     /**
      * Update the specified resource in storage.

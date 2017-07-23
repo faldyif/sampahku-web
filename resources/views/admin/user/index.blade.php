@@ -40,8 +40,8 @@
 
                                               <a href="{{url('admin/user')}}/{{ $key->id}}/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                                                <!--  -->
-                                               <a href="{{url('admin/user/destroy')}}/{{ $key->id}}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
-
+                                              <a href="{{url('admin/user/destroy')}}/{{ $key->id}}" class="btn btn-danger"><i class="pe-7s-close-circle"></i></a>
+                                              <a href="{{url('admin/user/detail')}}/{{ $key->id}}" class="btn btn-info"><i class="fa fa-minus-search">Detail</i></a>
 
                                         </td>
                                         </tr>

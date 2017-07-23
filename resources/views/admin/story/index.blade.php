@@ -16,17 +16,6 @@
                   <div class="content table-responsive table-full-width">
                       <table class="table table-hover table-striped">
                           <thead>
-				<!--
-				id
-				photo_path
-				user_id
-				latitude
-				longitude
-				accuracy
-				verified
-				available
-				timestamps
-  		-->
                           <th>ID</th>
                         	<th>Photo Path</th>
                         	<th>User ID</th>
@@ -56,7 +45,7 @@
 
                                   
                                    <!--  -->
-                                   <a href="{{url('admin/story')}}/{{ $key->id}}/destroy" class="btn btn-default">Hapus</a>
+                                   <a href="{{url('admin/story')}}/{{ $key->id}}/destroy" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
 
                             </td>
                             </tr>

@@ -23,6 +23,9 @@ Route::get('/admin/user', function () {
 Route::get('/admin/reward', function () {
     return view('admin.reward.index');
 });
+Route::get('/admin/user/detail/{id}', function () {
+    return view('admin.user.detail');
+});
 // Route::get('/edit', function () {
 //     return view('user.edit');
 // });

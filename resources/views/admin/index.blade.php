@@ -5,6 +5,6 @@
 @section('content')
 <div id="page-wrapper">
 
-  <p>  Hai Admin </p>
+  <p>  Hai {{ Auth::user()->name }} </p>
 </div>
 @endsection
