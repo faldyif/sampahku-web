@@ -81,12 +81,12 @@
                         <p>Tempat Sampah</p>
                     </a>
                 </li>
-								<li>
+								<!-- <li>
                     <a href="{{ url('/admin/trashType') }}">
                         <i class="pe-7s-science"></i>
                         <p>Tipe Tempat Sampah</p>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="{{ url('/admin/reward') }}">
@@ -226,10 +226,11 @@
 						<li class="separator hidden-lg hidden-md"></li>
 						@endif -->
 						<a href="{{ url('/logout') }}"
-															onclick="event.preventDefault();
-																			 document.getElementById('logout-form').submit();"--><i class="fa fa-fw fa-power-off"></i> Logout</a>
-															<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-															{{ csrf_field() }}
+						onclick="event.preventDefault();
+										 document.getElementById('logout-form').submit();"--><i class="fa fa-fw fa-power-off"></i> Logout</a>
+						<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+						{{ csrf_field() }}
+                        </form>
                     <!-- </ul> -->
 									</form>
 									</a>

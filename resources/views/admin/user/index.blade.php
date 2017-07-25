@@ -1,5 +1,5 @@
 <!-- <?php
-	$users = \App\User::whereIn('role_id', [0,1]);
+//	$users = \App\User::whereIn('role_id', [0,1]);
 	?> -->
 
 @extends('layouts.admin')
@@ -38,10 +38,10 @@
                                           <!-- <td>{{ $key->type_user }}</td> -->
                                           <td>
 
-                                              <a href="{{url('admin/user')}}/{{ $key->id}}/edit" class="btn btn-default">Edit User</a>
+                                              <a href="{{url('admin/user')}}/{{ $key->id}}/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                                                <!--  -->
-                                               <a href="{{url('admin/user/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
-
+                                              <a href="{{url('admin/user/destroy')}}/{{ $key->id}}" class="btn btn-danger"><i class="pe-7s-close-circle"></i></a>
+                                              <a href="{{url('admin/user/detail')}}/{{ $key->id}}" class="btn btn-info"><i class="fa fa-minus-search">Detail</i></a>
 
                                         </td>
                                         </tr>

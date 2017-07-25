@@ -38,11 +38,22 @@
                                       </div>
                                   </div>
                                   <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Verifikasi</label>
+                                        <!-- {{ Form::text('role', null, array('class' => 'form-control')) }} -->
+                                      <select name="verified" class="form-control select2">
+
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+
+                                      </select>
+                                  </div>
+                                  <!-- <div class="col-md-6">
                                       <div class="form-group">
                                           <label>Verifikasi</label>
                                           {{ Form::text('verified', null, array('class' => 'form-control')) }}
                                       </div>
-                                  </div>
+                                  </div> -->
                               </div>
 
                                 <div class="row">

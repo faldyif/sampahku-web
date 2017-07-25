@@ -44,7 +44,7 @@
                                           <td>
 
                                                <!--  -->
-                                               <a href="{{url('admin/userFalseReport/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
+                                               <a href="{{url('admin/userFalseReport/destroy')}}/{{ $key->id}}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
 
 
                                         </td>

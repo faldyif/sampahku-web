@@ -14,6 +14,7 @@
                                 <p class="category">Informasi Data Tempat Sampah</p>
                             </div>
                             <div class="content table-responsive table-full-width">
+
                                 <table class="table table-hover table-striped">
                                     <thead>
                                       <th>ID</th>
@@ -21,7 +22,6 @@
                                     	<th>Foto</th>
                                     	<th>Verifikasi</th>
                                       <th>ID User</th>
-                                      <th>ID Type Tempat Sampah</th>
                                       <th>Latitude</th>
                                       <th>Longitude</th>
                                       <th>Akurasi</th>
@@ -38,17 +38,17 @@
                                         	<td>{{ $key->photo_path }}</td>
                                         	<td>{{ $key->verified }}</td>
                                           <td>{{ $key->user_id }}</td>
-                                          <td>{{ $key->trash_type_id }}</td>
                                           <td>{{ $key->latitude }}</td>
                                           <td>{{ $key->longitude }}</td>
                                           <td>{{ $key->accuracy}}</td>
                                           <!-- <td>{{ $key->type_user }}</td> -->
                                           <td>
 
-                                              <a href="{{url('admin/trash')}}/{{ $key->id}}/edit" class="btn btn-default">Edit</a>
+                                              <a href="{{url('admin/trash')}}/{{ $key->id}}/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                                                <!--  -->
-                                               <a href="{{url('admin/trash/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
-                                          
+                                              <a href="{{url('admin/trash/destroy')}}/{{ $key->id}}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
+                                              <a href="{{url('admin/trash/verify')}}/{{ $key->id}}" class="btn btn-info"><i class="fa fa-check">Verify</i></a>
+                                              <a href="{{url('admin/trash/unverify')}}/{{ $key->id}}" class="btn btn-warning"><i class="fa fa-check">Unverify</i></a>
 
                                         </td>
                                         </tr>

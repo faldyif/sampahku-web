@@ -35,7 +35,7 @@
 
 
                                                <!--  -->
-                                               <a href="{{url('admin/pointHistory')}}/{{ $key->id}}/destroy" class="btn btn-default">Hapus</a>
+                                               <a href="{{url('admin/pointHistory')}}/{{ $key->id}}/destroy" class="btn btn-danger"><i class="fa fa-minus-circle">Hapus</i></a>
 
                                         </td>
                                         </tr>

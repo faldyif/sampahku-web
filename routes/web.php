@@ -23,6 +23,9 @@ Route::get('/admin/user', function () {
 Route::get('/admin/reward', function () {
     return view('admin.reward.index');
 });
+Route::get('/admin/user/detail/{id}', function () {
+    return view('admin.user.detail');
+});
 // Route::get('/edit', function () {
 //     return view('user.edit');
 // });
@@ -61,6 +64,9 @@ Route::group(['prefix' => 'api/v1'], function () {
 
 	Route::post('/trash/all', 'ApiTrashController@get');
 	Route::post('/trash/new', 'ApiTrashController@add');
+	Route::post('/trash/type', 'ApiTrashController@getTrashTypes');
 
-  Route::post('/admin/trashType/new', 'TrashTypeController@add');
+	Route::post('/story/new', 'ApiStoryController@add');
+
+  	Route::post('/admin/trashType/new', 'TrashTypeController@add');
 });
