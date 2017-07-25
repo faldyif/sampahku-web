@@ -15,9 +15,10 @@
             <div class="author">
                  <a href="#">
                <img class="avatar border-gray" src="{{ url('img/abdur.png') }}">
-
-                  <h4 class="title">{{ Auth::user()->name }}<br />
-                     <small>{{ Auth::user()->email }}</small>
+<!-- $user = User::find($id); -->
+                  @foreach($user as $key)
+                  <h4 class="title">{{ $key->name }}<br />
+                     <small>{{ $key->email }}</small>
                   </h4>
                 </a>
             </div>
@@ -25,6 +26,17 @@
                                 History Reward <br>
                                 History report
             </p>
+            @endforeach
+
+           <!--  @foreach($booking as $key)  
+                 <tr>
+                   <td>{{ $key->id}}</td>
+                   <td>{{ App\Schedule::find($key->schedule_id)->time}}</td>
+                   <td>{{ App\Schedule::find($key->schedule_id)->name}}</td>
+                   <td>{{ App\Schedule::find($key->schedule_id)->description}}</td>
+                   <td><a href="#" type="reset" class="btn btn-danger waves-effect waves-light">Batal</td>
+                 </tr>
+             @endforeach -->
         </div>
         <hr>
         <div class="text-center">

@@ -28,7 +28,8 @@
                                             {{ Form::text('email', null, array('class' => 'form-control')) }}
                                         </div>
                                     </div>
-                              </
+                                </div>
+                              
                               <div class="row">
                                   <div class="col-md-6">
                                       <div class="form-group">
@@ -46,12 +47,18 @@
                                         <option value="1">User</option>
 
                                       </select>
-
-
-
                                   </div>
                               </div>
                             </div>
+                            <div class="row">                                     
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            {{ Form::password('password', null, array('class' => 'form-control')) }}
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                           </div>
                           
                           <a href="{{ url('admin/user') }}"  class="btn btn-danger btn-fill pull-right">Batal</a>
