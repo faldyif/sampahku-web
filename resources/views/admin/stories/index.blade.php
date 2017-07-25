@@ -16,18 +16,7 @@
                   <div class="content table-responsive table-full-width">
                       <table class="table table-hover table-striped">
                           <thead>
-				<!--
-				id
-				photo_path
-				user_id
-				latitude
-				longitude
-				accuracy
-				verified
-				available
-				timestamps
-  		-->
-                          <th>ID</th>
+			                    <th>ID</th>
                         	<th>Photo Path</th>
                         	<th>ID User</th>
                         	<th>Latitude</th>
@@ -52,9 +41,9 @@
                               <!-- <td>{{ $key->type_user }}</td> -->
                               <td>
 
-                                  <a href="{{url('admin/user')}}/{{ $key->id}}/edit" class="btn btn-default">Edit</a>
+                                  <a href="{{url('admin/user')}}/{{ $key->id}}/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                                    <!--  -->
-                                   <a href="{{url('admin/user')}}/{{ $key->id}}/destroy" class="btn btn-default">Hapus</a>
+                                   <a href="{{url('admin/user')}}/{{ $key->id}}/destroy" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
 
                             </td>
                             </tr>

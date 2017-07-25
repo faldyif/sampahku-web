@@ -81,12 +81,12 @@
                         <p>Tempat Sampah</p>
                     </a>
                 </li>
-								<li>
+								<!-- <li>
                     <a href="{{ url('/admin/trashType') }}">
                         <i class="pe-7s-science"></i>
                         <p>Tipe Tempat Sampah</p>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="{{ url('/admin/reward') }}">

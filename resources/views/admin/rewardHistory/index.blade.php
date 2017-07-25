@@ -34,7 +34,7 @@
                             	<td>{{ $key->point_spent }}</td>
                               <!-- <td>{{ $key->type_user }}</td> -->
                               <td>
-                                <a href="{{url('admin/user/destroy')}}/{{ $key->id}}" class="btn btn-default">Hapus</a>
+                                <a href="{{url('admin/user/destroy')}}/{{ $key->id}}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
                               </td>
                             </tr>
                             @endforeach

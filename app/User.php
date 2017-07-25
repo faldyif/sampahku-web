@@ -20,8 +20,12 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        if($this->role = 2) return true;
-        else return false;
+        // if($this->role = 2) return true;
+        // else return false;
+//         public function isAdmin() {
+
+//         return $this->hasRole('Admin'); // ?? something like this! should return true or false
+// }
     }
 
     /**
