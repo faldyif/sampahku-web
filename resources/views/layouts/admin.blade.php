@@ -226,18 +226,11 @@
 						<li class="separator hidden-lg hidden-md"></li>
 						@endif -->
 						<a href="{{ url('/logout') }}"
-<<<<<<< HEAD
 						onclick="event.preventDefault();
 										 document.getElementById('logout-form').submit();"--><i class="fa fa-fw fa-power-off"></i> Logout</a>
 						<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
                         </form>
-=======
-															onclick="event.preventDefault();
-																			 document.getElementById('logout-form').submit();"--><i class="fa fa-fw fa-power-off"></i> Logout</a>
-															<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-															{{ csrf_field() }}
->>>>>>> 860363a6ccb860f1af64182ff64cd1e3d681b5ba
                     <!-- </ul> -->
 									</form>
 									</a>
