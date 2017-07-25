@@ -106,6 +106,7 @@ class TrashTypeController extends Controller
     {
         //
         $this->validate($request,[
+            
           'trash_type' => 'required',
           'icon_path' => 'required',
         ]);

@@ -15,7 +15,7 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = {!! json_encode([
+        window.SampahKu = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
@@ -36,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'SampahKu') }}
                     </a>
                 </div>
 

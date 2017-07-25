@@ -35,7 +35,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script>
-      window.Laravel = <?php echo json_encode([
+      window.SampahKu = <?php echo json_encode([
           'csrfToken' => csrf_token(),
       ]); ?>
   </script>
@@ -155,24 +155,7 @@
 								<p class="hidden-lg hidden-md">Dashboard</p>
                             </a>
                         </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-sm hidden-xs"></b>
-                                    <span class="notification hidden-sm hidden-xs">5</span>
-									<p class="hidden-lg hidden-md">
-										5 Notifications
-										<b class="caret"></b>
-									</p>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                              </ul>
-                        </li>
+                       
                         <li>
                            <a href="">
                                 <i class="fa fa-search"></i>
@@ -182,57 +165,34 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-											<!-- @if (Auth::guest())
-													<li><a href="{{ route('login') }}">Login</a></li>
-													<li><a href="{{ route('register') }}">Register</a></li>
-											@else -->
+								<!-- @if (Auth::guest())
+										<li><a href="{{ route('login') }}">Login</a></li>
+										<li><a href="{{ route('register') }}">Register</a></li>
+								@else -->
 
-													<!-- <li class="dropdown">
-															<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-																	{{ Auth::user()->name }} <span class="caret"></span>
-															</a>
-                        <li> -->
-                           <!-- <a href="">
-                               <p>Account</p>
-                            </a> -->
-                      <!-- </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-										Dropdown
-										<b class="caret"></b>
-									</p>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                        </li>
-                        <li>
-													<a href="{{ route('logout') }}"
-															onclick="event.preventDefault();
-																			 document.getElementById('logout-form').submit();">
-															Keluar
-													</a>
-													<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-															{{ csrf_field() }}
-													</form>
-                        </li>
-						<li class="separator hidden-lg hidden-md"></li>
-						@endif -->
+										<!-- <li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+														{{ Auth::user()->name }} <span class="caret"></span>
+			
+										<a href="{{ route('logout') }}"
+												onclick="event.preventDefault();
+																 document.getElementById('logout-form').submit();">
+												Keluar
+										</a>
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+												{{ csrf_field() }}
+										</form>
+            </li>
+			<li class="separator hidden-lg hidden-md"></li>
+			@endif -->
 						<a href="{{ url('/logout') }}"
-															onclick="event.preventDefault();
-																			 document.getElementById('logout-form').submit();"--><i class="fa fa-fw fa-power-off"></i> Logout</a>
-															<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-															{{ csrf_field() }}
-                    <!-- </ul> -->
-									</form>
-									</a>
+							onclick="event.preventDefault();
+											 document.getElementById('logout-form').submit();"--><i class="fa fa-fw fa-power-off"></i> Logout</a>
+							<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+							{{ csrf_field() }}
+<!-- </ul> -->
+					</form>
+					</a>
                 </div>
             </div>
         </nav>

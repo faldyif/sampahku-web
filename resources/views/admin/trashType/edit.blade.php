@@ -18,7 +18,7 @@
 						 <div class="col-md-8">
 							<div class="form-group">
 								<label>Jenis Tempat Sampah</label>
-                  {{ Form::text('trash_type', null, array('class' => 'form-control')) }}
+                  			{{ Form::text('trash_type', null, array('class' => 'form-control')) }}
 								</div>
 							</div>
 							<div class="row">

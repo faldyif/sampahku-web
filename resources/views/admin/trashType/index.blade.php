@@ -13,6 +13,7 @@
                             <div class="header">
                                 <h4 class="title">Data Tipe Tempat Sampah</h4>
                                 <p class="category">Informasi Tipe Tempat Sampah</p>
+                                 <a href="{{url('admin/trashType/create')}}" class="btn btn-primary">Tambah</i></a> 
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
