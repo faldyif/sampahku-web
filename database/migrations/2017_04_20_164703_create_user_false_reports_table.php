@@ -19,7 +19,8 @@ class CreateUserFalseReportsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('trash_id')->unsigned();
-            $table->foreign('trash_id')->references('id')->on('trashes');
+            $table->foreign('trash_id')->references('id')->on('trashes');            
+            $table->string('photo_path');
             $table->string('latitude');
             $table->string('longitude');
             $table->string('accuracy');

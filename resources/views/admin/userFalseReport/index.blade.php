@@ -20,6 +20,7 @@
                                     	<th>Content</th>
                                     	<th>User ID</th>
                                     	<th>Trash ID</th>
+                                      <th>Photo Path</th>
                                       <th>Latitude</th>
                                       <th>Longitude</th>
                                       <th>Accuracy</th>
@@ -35,7 +36,8 @@
                                         	<td>{{ $key->id }}</td>
                                         	<td>{{ $key->content }}</td>
                                         	<td>{{ $key->user_id }}</td>
-                                        	<td>{{ $key->trash_id }}</td>
+                                          <td>{{ $key->trash_id }}</td>
+                                        	<td>{{ $key->photo_path }}</td>
                                           <td>{{ $key->latitude }}</td>
                                           <td>{{ $key->longitude }}</td>
                                           <td>{{ $key->accuracy}}</td>

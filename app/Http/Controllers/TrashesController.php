@@ -74,6 +74,15 @@ class TrashesController extends Controller
         return View('admin.trash.edit')->with('trash',$trash);
     }
 
+    public function detail($id)
+    {
+        //
+        $trash = Trash::find($id);
+        $userTrueReport = $trash->userTrueReport;
+        $userFalseReport = $trash->userFalseReport;
+       return View('admin.trash.detail')->with('trash',$trash)->with('userTrueReport',$userTrueReport)->with('userFalseReport',$userFalseReport);
+    }
+
     /**
      * Update the specified resource in storage.
      *

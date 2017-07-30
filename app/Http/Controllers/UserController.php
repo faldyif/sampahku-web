@@ -19,6 +19,8 @@ class UserController extends Controller
         //
         $user = User::all();
         return View('admin.user.index')->with('user', $user);
+
+        
     }
 
     /**
@@ -51,6 +53,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
@@ -69,7 +72,13 @@ class UserController extends Controller
     {
         //
         $user = User::find($id);
-       return View('admin.user.detail')->with('user',$user);
+        $trash = $user->trash;
+        $story = $user->story;
+        $pointHistory = $user->pointHistory;
+        $userTrueReport = $user->userTrueReport;
+        $rewardHistory = $user->rewardHistory;
+        $userFalseReport = $user->userFalseReport;
+       return View('admin.user.detail')->with('trash',$trash)->with('user',$user)->with('pointHistory',$pointHistory)->with('userFalseReport',$userFalseReport)->with('userTrueReport',$userTrueReport)->with('rewardHistory',$rewardHistory)->with('story',$story);
     }
 
     /**

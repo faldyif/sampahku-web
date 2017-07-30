@@ -600,6 +600,21 @@
 
         var features = [
           {
+            //icon
+
+            if(verify == 0 && id_type_trash == 1){
+              //kecil abu-abu
+              position : new google.maps.LatLng( )
+
+            }else if(verify == 1 && id_type_trash == 1){
+              //kecil hijau
+            }else if(verify == 1 && id_type_trash == 2){
+              //besar merah
+            }else{
+              //besar abu-abu
+            }
+
+
             position: new google.maps.LatLng(-7.774531, 110.374573),
             type: 'little'
           }, {

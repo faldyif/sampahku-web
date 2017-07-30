@@ -24,7 +24,7 @@ class CreateTrashesTable extends Migration
             $table->string('verified')->default('no'); // no , 1 yes
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('accuracy');
+            $table->integer('accuracy');
             $table->timestamps();
         });
     }

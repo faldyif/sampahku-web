@@ -43,9 +43,8 @@
                                           <td>{{ $key->accuracy}}</td>
                                           <!-- <td>{{ $key->type_user }}</td> -->
                                           <td>
-
+                                              <a href="{{url('admin/trash/detail')}}/{{ $key->id}}" class="btn btn-info"><i class="fa fa-minus-search">Detail</i></a>
                                               <a href="{{url('admin/trash')}}/{{ $key->id}}/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                               <!--  -->
                                               <a href="{{url('admin/trash/destroy')}}/{{ $key->id}}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></a>
                                               <a href="{{url('admin/trash/verify')}}/{{ $key->id}}" class="btn btn-info"><i class="fa fa-check">Verify</i></a>
                                               <a href="{{url('admin/trash/unverify')}}/{{ $key->id}}" class="btn btn-warning"><i class="fa fa-check">Unverify</i></a>

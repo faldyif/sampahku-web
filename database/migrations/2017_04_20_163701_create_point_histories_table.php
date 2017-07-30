@@ -18,7 +18,7 @@ class CreatePointHistoriesTable extends Migration
             $table->integer('point');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('related_type');
+            $table->integer('related_type')->unsigned();
             $table->integer('related_id')->unsigned();
             $table->timestamps();
         });
